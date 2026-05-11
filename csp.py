@@ -1,6 +1,6 @@
 from constraint import Problem, AllDifferentConstraint
 
-# Create the CSP instance.
+# Create the CSP instance
 problem = Problem()
 
 # Define the variable groups matching exactly the formal definition
@@ -19,7 +19,7 @@ OFFICES = [1, 2, 3, 4, 5]
 for entity in subjects + cars + research + universities + decors + drinks:
     problem.addVariable(entity, OFFICES)
 
-# C_uniq_1 to C_uniq_6 where each attribute group is pairwise different.
+# C_uniq_1 to C_uniq_6 where each attribute group is pairwise different
 problem.addConstraint(AllDifferentConstraint(), subjects)
 problem.addConstraint(AllDifferentConstraint(), cars)
 problem.addConstraint(AllDifferentConstraint(), research)
@@ -80,9 +80,9 @@ print(f"Number of solutions found: {len(solutions)}\n")
 
 # Display the first valid solution as a table indexed by office position
 solution = solutions[0]
-print("=" * 72)
-print(f"{'Office':<8}{'Subject':<18}{'Car':<10}{'Research':<22}{'University':<12}{'Decor':<8}{'Drink':<12}")
-print("=" * 72)
+print("=" * 92)
+print(f"{'Office':<8}{'Subject':<18}{'Car':<10}{'Research':<24}{'University':<12}{'Decor':<8}{'Drink':<12}")
+print("=" * 92)
 
 for office in OFFICES:
     # Look up which entity from each group is assigned to this office
@@ -92,9 +92,9 @@ for office in OFFICES:
     university = next((u for u in universities if solution[u] == office), "-")
     decor      = next((d for d in decors       if solution[d] == office), "-")
     drink      = next((b for b in drinks       if solution[b] == office), "-")
-    print(f"{office:<8}{subject:<18}{car:<10}{focus:<22}{university:<12}{decor:<8}{drink:<12}")
+    print(f"{office:<8}{subject:<18}{car:<10}{focus:<24}{university:<12}{decor:<8}{drink:<12}")
 
-print("=" * 72)
+print("=" * 92)
 
 # Final answer to the question
 medieval_office = solution["MedievalLiterature"]
